@@ -13,6 +13,8 @@ values('Ativo'),
 ('Inativo'),
 ('Afastado');
 
+select * from tbstatus;
+
 create table tbprofessor(
 codProfessor INT primary key auto_increment,
 nomeProfessor varchar(50),
@@ -27,6 +29,8 @@ values('Marcos Paulo', 'marcos.paulo@escola.com', 'carlos.jpg', 1),
 ('Eric Wallis', 'eric.wallis@escola.com', 'maria.jpg', 1),
 ('Luiz Gustavo', 'luiz.gustavo@escola.com', 'joao.jpg', 2);
 
+select * from tbprofessor;
+
 create table tbformacao(
 codFormacao INT primary key auto_increment,
 nomeFormacao varchar(50),
@@ -37,6 +41,8 @@ insert into tbformacao (nomeFormacao, tipoFormacao)
 values('Licenciatura em Matemática', 'Graduação'),
 ('Engenharia de Software', 'Graduação'),
 ('Mestrado em Educação', 'Pós-graduação');
+
+select * from tbformacao;
 
 create table tbformacaoprofessor(
 codFormacaoProfessor INT primary key auto_increment,
@@ -52,6 +58,8 @@ insert into tbformacaoprofessor(codFormacao, codProfessor, instituicao)
     (2,2,'USP'),
     (3,3,'FATEC');
 
+select * from tbformacaoprofessor;
+
 create table tbcursos(
 codCurso INT primary key auto_increment,
 nomeCurso varchar(50),
@@ -62,6 +70,8 @@ insert into tbcursos(nomeCurso, periodoCurso)
 	values('Matemática','Noturno'),
     ('Informática','Matutino'),
     ('Pedagogia','Vespertino');
+
+select * from tbcursos;
 
 create table tbcursoprofessor(
 codCursoProfessor INT primary key auto_increment,
@@ -76,6 +86,8 @@ insert into tbcursoprofessor(codCurso, codProfessor)
     (2,2),
     (3,3);
 
+select * from tbcursoprofessor;
+
 create table tbcoordenador(
 codCoordenador INT primary key auto_increment,
 nomeCoordenador varchar(50)
@@ -85,6 +97,8 @@ insert into tbcoordenador(nomeCoordenador)
 	values('Marcos Paulo'),
     ('Eric Wallis'),
     ('Luiz Gustavo');
+
+select * from tbcoordenador;
 
 create table tbcursocoordenador(
 codCursoCoordenador INT primary key auto_increment,
@@ -98,6 +112,8 @@ insert into tbcursocoordenador(codCurso, codCoordenador)
 	values(1,1),
     (2,2),
     (3,3);
+
+select * from tbcursocoordenador;
 
 create table tblogin(
 codLogin INT primary key auto_increment,
