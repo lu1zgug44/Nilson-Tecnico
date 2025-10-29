@@ -31,6 +31,11 @@ select tbprofessor.codProfessor, tbprofessor.nomeProfessor, tbprofessor.emailPro
 from tbprofessor
 inner join tbstatus on tbprofessor.codStatus = tbstatus.codStatus;
 
+update tbprofessor set emailProfessor = 'marcos.novo@escola.com'
+where codProfessor = 1;
+
+-- delete from tbprofessor where codProfessor = 2;
+
 create table tbformacao(
 codFormacao INT primary key auto_increment,
 nomeFormacao varchar(50),
