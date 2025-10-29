@@ -9,6 +9,12 @@ nomeCurso varchar(50),
 periodoCurso varchar(20)
 );
 
+create table tbcursoprofessor(
+codCursoProfessor INT primary key auto_increment,
+codCurso INT primary key auto_increment,
+codProfessor INT primary key auto_increment
+);
+
 create table tbstatus(
 codStatus INT primary key not null,
 statusProfessor varchar(10)
@@ -27,6 +33,13 @@ create table tbformacao(
 codFormacao INT primary key auto_increment,
 nomeFormacao varchar(50),
 tipoFormacao varchar(30)
+);
+
+create table tbformacaoprofessor(
+codFormacaoProfessor INT primary key auto_increment,
+codFormacao INT primary key auto_increment,
+codProfessor INT primary key auto_increment,
+instituicao varchar(255)
 );
 
 create table tblogin(
