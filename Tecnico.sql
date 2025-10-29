@@ -9,12 +9,18 @@ nomeCurso varchar(50),
 periodoCurso varchar(20)
 );
 
+create table tbstatus(
+codStatus INT primary key not null,
+statusProfessor varchar(10)
+);
+
 create table tbprofessor(
 codProfessor INT primary key auto_increment,
 nomeProfessor varchar(50),
 emailProfessor varchar(50),
 fotoProfessor varchar(255),
-codStatus INT
+codStatus INT,
+foreign key (codStatus) references tbStatus(codStatus)
 );
 
 create table tbformacao(
