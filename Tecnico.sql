@@ -25,9 +25,9 @@ foreign key (codStatus) references tbStatus(codStatus)
 );
 
 insert into tbprofessor (nomeProfessor, emailProfessor, fotoProfessor, codStatus) 
-values('Marcos Paulo', 'marcos.paulo@escola.com', 'carlos.jpg', 1),
-('Eric Wallis', 'eric.wallis@escola.com', 'maria.jpg', 1),
-('Luiz Gustavo', 'luiz.gustavo@escola.com', 'joao.jpg', 2);
+values('Marcos Paulo', 'marcos.paulo@escola.com', 'marcos.jpg', 1),
+('Eric Wallis', 'eric.wallis@escola.com', 'eric.jpg', 1),
+('Luiz Gustavo', 'luiz.gustavo@escola.com', 'luiz.jpg', 2);
 
 select * from tbprofessor;
 
