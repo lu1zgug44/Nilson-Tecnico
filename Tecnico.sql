@@ -13,7 +13,7 @@ codProfessor INT primary key auto_increment,
 nomeProfessor varchar(50),
 emailProfessor varchar(50),
 fotoProfessor varchar(255),
-codStatus INT,
+codStatus INT not null,
 foreign key (codStatus) references tbStatus(codStatus)
 );
 
@@ -25,8 +25,8 @@ tipoFormacao varchar(30)
 
 create table tbformacaoprofessor(
 codFormacaoProfessor INT primary key auto_increment,
-codFormacao INT,
-codProfessor INT,
+codFormacao INT not null,
+codProfessor INT not null,
 instituicao varchar(255),
 foreign key (codFormacao) references tbformacao(codFormacao),
 foreign key (codProfessor) references tbprofessor(codProfessor)
@@ -40,8 +40,8 @@ periodoCurso varchar(20)
 
 create table tbcursoprofessor(
 codCursoProfessor INT primary key auto_increment,
-codCurso INT,
-codProfessor INT,
+codCurso INT not null,
+codProfessor INT not null,
 foreign key (codCurso) references tbcursos(codCurso),
 foreign key (codProfessor) references tbprofessor(codProfessor)
 );
@@ -53,8 +53,8 @@ nomeCoordenador varchar(50)
 
 create table tbcursocoordenador(
 codCursoCoordenador INT primary key auto_increment,
-codCurso INT,
-codCoordenador INT,
+codCurso INT not null,
+codCoordenador INT not null,
 foreign key (codCurso) references tbcursos(codCurso),
 foreign key (codCoordenador) references tbcoordenador(codCoordenador)
 );
@@ -63,5 +63,5 @@ create table tblogin(
 codLogin INT primary key auto_increment,
 usuarioLogin varchar(50),
 senhaLogin varchar(10),
-Tipo INT
+Tipo INT not null
 );
