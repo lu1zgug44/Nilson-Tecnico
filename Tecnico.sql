@@ -65,3 +65,8 @@ usuarioLogin varchar(50),
 senhaLogin varchar(10),
 Tipo INT not null
 );
+
+insert into tblogin(usuarioLogin, senhaLogin, tipo)
+	values('Luiz','123456',1),
+    ('Eric','123455',2),
+    ('Marcos','123454',3);
