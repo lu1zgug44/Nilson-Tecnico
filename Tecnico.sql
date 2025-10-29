@@ -13,8 +13,6 @@ values('Ativo'),
 ('Inativo'),
 ('Afastado');
 
-select * from tbstatus;
-
 create table tbprofessor(
 codProfessor INT primary key auto_increment,
 nomeProfessor varchar(50),
@@ -29,7 +27,9 @@ values('Marcos Paulo', 'marcos.paulo@escola.com', 'marcos.jpg', 1),
 ('Eric Wallis', 'eric.wallis@escola.com', 'eric.jpg', 1),
 ('Luiz Gustavo', 'luiz.gustavo@escola.com', 'luiz.jpg', 2);
 
-select * from tbprofessor;
+select tbprofessor.codProfessor, tbprofessor.nomeProfessor, tbprofessor.emailProfessor, tbprofessor.fotoProfessor, tbstatus.statusProfessor
+from tbprofessor
+inner join tbstatus on tbprofessor.codStatus = tbstatus.codStatus;
 
 create table tbformacao(
 codFormacao INT primary key auto_increment,
@@ -41,8 +41,6 @@ insert into tbformacao (nomeFormacao, tipoFormacao)
 values('Licenciatura em Matemática', 'Graduação'),
 ('Engenharia de Software', 'Graduação'),
 ('Mestrado em Educação', 'Pós-graduação');
-
-select * from tbformacao;
 
 create table tbformacaoprofessor(
 codFormacaoProfessor INT primary key auto_increment,
@@ -58,7 +56,12 @@ insert into tbformacaoprofessor(codFormacao, codProfessor, instituicao)
     (2,2,'USP'),
     (3,3,'FATEC');
 
-select * from tbformacaoprofessor;
+select tbprofessor.nomeProfessor, tbformacao.nomeFormacao, tbformacao.tipoFormacao, tbformacaoprofessor.instituicao
+from tbprofessor
+inner join tbformacaoprofessor
+on tbprofessor.codProfessor = tbformacaoprofessor.codProfessor
+inner join tbformacao
+on tbformacaoprofessor.codFormacao = tbformacao.codFormacao;
 
 create table tbcursos(
 codCurso INT primary key auto_increment,
@@ -70,8 +73,6 @@ insert into tbcursos(nomeCurso, periodoCurso)
 	values('Matemática','Noturno'),
     ('Informática','Matutino'),
     ('Pedagogia','Vespertino');
-
-select * from tbcursos;
 
 create table tbcursoprofessor(
 codCursoProfessor INT primary key auto_increment,
@@ -86,7 +87,12 @@ insert into tbcursoprofessor(codCurso, codProfessor)
     (2,2),
     (3,3);
 
-select * from tbcursoprofessor;
+select tbprofessor.nomeProfessor, tbcursos.nomeCurso, tbcursos.periodoCurso
+from tbprofessor
+inner join tbcursoprofessor
+on tbprofessor.codProfessor = tbcursoprofessor.codProfessor
+inner join tbcursos
+on tbcursoprofessor.codCurso = tbcursos.codCurso;
 
 create table tbcoordenador(
 codCoordenador INT primary key auto_increment,
@@ -97,8 +103,6 @@ insert into tbcoordenador(nomeCoordenador)
 	values('Marcos Paulo'),
     ('Eric Wallis'),
     ('Luiz Gustavo');
-
-select * from tbcoordenador;
 
 create table tbcursocoordenador(
 codCursoCoordenador INT primary key auto_increment,
@@ -113,7 +117,12 @@ insert into tbcursocoordenador(codCurso, codCoordenador)
     (2,2),
     (3,3);
 
-select * from tbcursocoordenador;
+select tbcoordenador.nomeCoordenador, tbcursos.nomeCurso, tbcursos.periodoCurso
+from tbcoordenador
+inner join tbcursocoordenador
+on tbcoordenador.codCoordenador = tbcursocoordenador.codCoordenador
+inner join tbcursos
+on tbcursocoordenador.codCurso = tbcursos.codCurso;
 
 create table tblogin(
 codLogin INT primary key auto_increment,
